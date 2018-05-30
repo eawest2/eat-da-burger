@@ -1,0 +1,20 @@
+{
+  "name": "eat-da-burger",
+  "version": "1.0.0",
+  "description": "This is a demonstrator for basic ORM functionality.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eawest2/eat-da-burger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eawest2/eat-da-burger/issues"
+  },
+  "homepage": "https://github.com/eawest2/eat-da-burger#readme"
+}
