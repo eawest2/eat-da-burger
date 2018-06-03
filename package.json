@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/eawest2/eat-da-burger/issues"
   },
-  "homepage": "https://github.com/eawest2/eat-da-burger#readme"
+  "homepage": "https://github.com/eawest2/eat-da-burger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  }
 }
