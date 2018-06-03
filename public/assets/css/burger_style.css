@@ -1,3 +1,6 @@
 body {
     background-image: url("../img/burgerBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(15, 15, 15);
 }

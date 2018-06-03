@@ -47,7 +47,7 @@ var orm = {
 },
     
     update: function(table, objColVals, condition, cb) {
-    var eatBurger = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
+    var eatBurger = `UPDATE burgers SET devoured = '1' WHERE ${condition};`
     connection.query(eatBurger, function(err, result) {
         if (err) {
         throw err;

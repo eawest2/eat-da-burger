@@ -1,9 +1,11 @@
 <li>
-	<div class="burgerName">
+	<div class="burgerName color">
 		{{burger_name}}
 	</div>
-	<button class="changeDevoured" data-id="{{id}}" data-changeDevoured="{{devour}}">
-		{{#if devour}}Devour it!{{else}} {{/if}}
-	</button>
+	{{#if devour}}
+		<button class="changeDevoured btn btn-secondary" data-id="{{id}}" data-changeDevoured="{{devour}}">
+			Devour it!
+		</button>
+	{{else}}{{/if}}
 	<br>
 </li>

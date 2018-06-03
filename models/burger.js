@@ -4,9 +4,9 @@ var orm = require ("../config/orm.js");
 // Define model
 var burger = {
 
-    all: function(cb){
+    all: function(callback){
         orm.all("burgers", function (res){
-            cb(res);
+            callback(res);
         });
     },
     create: function(cols, vals, callback) {
