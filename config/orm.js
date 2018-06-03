@@ -1,38 +1,60 @@
-var connection = require('connection.js');
+var connection = require("../config/connection.js");
+
+function printQuestionMarks(num) {
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+    arr.push("?");
+    }
+    return arr.toString();
+}
+
+function objToSql(ob) {
+    var arr = [];
+    for (var key in ob) {
+    var value = ob[key];
+    if (Object.hasOwnProperty.call(ob, key)) {
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+        }
+        arr.push(key + "=" + value);
+        }
+    }
+    return arr.toString();
+}
 
 var orm = {
-    all: function(cb){
-        var queryString = "SELECT * FROM burgers;";
-        connection.query(queryString, function(err, result){
-            if (err) {
-                throw err;
-            };
-            cb(result);
-        });
-    },
-    create: function(name, cb){
-        var queryString = "INSERT INTO burgers (burger_name, devoured)";
-        queryString += "VALUES(" + name.toString() + ", false);";
 
-        connection.query(queryString, function(err, result){
-            if (err){
-                throw err;
-            }
-            cb(result);
-        })
+    all: function(tableInput, cb) {
+    var queryString = `SELECT * FROM ${tableInput};`;
+    connection.query(queryString, function(err, result) {
+        if (err) {
+        throw err;
+        }
+        cb(result);
+    });
     },
-    update: function (id, cb){
-        var queryString = "UPDATE burgers";
-        querystring += 'Set devoured = "true"'
-        querystring += 'WHERE id = "' + id + ";"
+    create: function(table, cols, vals, cb) {
+    var newBurger = `INSERT INTO ${table} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)})`;
 
-        connection.query(queryString, function(err, result) {
-            if (err) {
-                throw err;
-                }
-            cb(result);
-            });
+    console.log(newBurger);
+
+    connection.query(newBurger, vals, function(err, result) {
+        if (err) {
+        throw err;
     }
-}
+        cb(result);
+    });
+},
+    
+    update: function(table, objColVals, condition, cb) {
+    var eatBurger = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`
+    connection.query(eatBurger, function(err, result) {
+        if (err) {
+        throw err;
+        }
+        cb(result);
+        });
+    }
+};
 
 module.exports = orm;

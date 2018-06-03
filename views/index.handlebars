@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <br>
+        </div>
+    <div class="col-4 main-title center">
+        <h1>Eat Da Burger</h1>
+    </div>
+        <div class="col-4">
+            <br>
+        </div>
+    </div>
+
+    <div class = "row">
+        <div class="col-12 col-md-4 title center">
+            <h1>Burgers</h1>  
+            <ul>
+                {{#each burgers}}
+                {{#unless devoured}}
+                {{> burgerDisplay devour=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-12 col-md-4">
+            <br>
+        </div>
+        <div class="col-12 col-md-4 title">
+
+            <h3>What burgers have others eaten?</h3>
+
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgerDisplay devour=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <br>
+        </div>
+        <div class="col-12 col-md-4 title">
+            <h3>Add a Burger</h3>
+            <form class="createBurger">
+            <div class="form-group">
+                <label for="burgerName">Burger:</label>
+                <input type="text" id="burgerName" name="name">
+            </div>
+            <button type="submit">Add Your Burger</button>
+            </form>
+        </div>
+        <div class="col-12 col-md-4">
+            <br>
+        </div>
+    </div>
+</div>
