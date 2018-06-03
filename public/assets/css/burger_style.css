@@ -4,3 +4,7 @@ body {
     background-size: cover;
     background-color: rgb(15, 15, 15);
 }
+
+ul {
+    list-style-type: none;
+}
