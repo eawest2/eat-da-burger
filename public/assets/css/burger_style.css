@@ -8,3 +8,7 @@ body {
 ul {
     list-style-type: none;
 }
+
+.rounded {
+    border-radius: 10px;
+}
