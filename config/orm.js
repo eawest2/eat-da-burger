@@ -1,5 +1,7 @@
+//Dependancies
 var connection = require("../config/connection.js");
 
+//Input Sanitization
 function printQuestionMarks(num) {
     var arr = [];
     for (var i = 0; i < num; i++) {
@@ -22,6 +24,7 @@ function objToSql(ob) {
     return arr.toString();
 }
 
+//ORM methods
 var orm = {
 
     all: function(tableInput, cb) {
@@ -45,7 +48,6 @@ var orm = {
         cb(result);
     });
 },
-    
     update: function(table, objColVals, condition, cb) {
     var eatBurger = `UPDATE burgers SET devoured = '1' WHERE ${condition};`
     connection.query(eatBurger, function(err, result) {
@@ -57,4 +59,5 @@ var orm = {
     }
 };
 
+//Export
 module.exports = orm;
